@@ -43,6 +43,10 @@ public class Task1 {
     BufferedReader br = new BufferedReader((new InputStreamReader(System.in)));
     System.out.print("Input minimal cross score: ");
     int crossScore = Integer.parseInt(br.readLine());
-
+    students.stream()
+        .filter(x -> x.getScore() > crossScore)
+        .sorted((o1, o2) -> o2.getScore() - o1.getScore())
+        .limit(10)
+        .forEach(System.out::println);
   }
 }
